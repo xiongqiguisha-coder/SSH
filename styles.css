@@ -1,0 +1,46 @@
+:root{
+  --bg:#0f1724; --panel:#111827; --accent:#10b981; --text:#e6eef8;
+  --btn:#1f2937; --btn-hover:#374151;
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "メイリオ", sans-serif;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; background:linear-gradient(180deg,#071024 0%, #071827 60%);
+  color:var(--text);
+}
+
+.container{max-width:1100px;margin:24px auto;padding:18px;display:flex;flex-direction:column;gap:14px}
+.header{display:flex;justify-content:space-between;align-items:center}
+.header h1{margin:0}
+.controls{display:flex;gap:8px;align-items:center}
+.primary{background:var(--accent);color:#042016;border:0;padding:8px 12px;border-radius:6px;cursor:pointer}
+.danger{background:#9b1a1a;color:#fff;border:0;padding:8px 12px;border-radius:6px;cursor:pointer}
+
+.game-area{display:flex;gap:18px}
+.left{flex:1}
+.right{width:320px}
+
+.status{display:flex;flex-direction:column;gap:8px;padding:10px;background:rgba(255,255,255,0.02);border-radius:8px}
+.problem-card{margin-top:12px;padding:18px;background:var(--panel);border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,0.5)}
+.expression{font-size:22px;text-align:center;padding:10px;background:#08121a;border-radius:8px;color:var(--text);min-height:48px;display:flex;align-items:center;justify-content:center}
+.answer-row{display:flex;gap:8px;margin-top:12px}
+#answerInput{flex:1;padding:10px;border-radius:8px;border:0;font-size:18px}
+.feedback{height:28px;margin-top:10px}
+
+.recent-rounds{margin-top:12px}
+.recent-rounds ul{list-style:none;padding:0;margin:0;max-height:260px;overflow:auto}
+.recent-rounds li{padding:8px;border-radius:6px;background:rgba(255,255,255,0.02);margin-bottom:6px;font-size:14px;display:flex;justify-content:space-between}
+
+.summary{padding:12px;background:rgba(255,255,255,0.02);border-radius:8px}
+.storage-actions{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.admin-panel{margin-top:12px;padding:12px;background:#0b1220;border-radius:8px}
+.hidden{display:none}
+.admin-actions{display:flex;gap:8px;margin-top:8px}
+.admin-data-view{max-height:240px;overflow:auto;margin-top:8px;padding:8px;background:rgba(255,255,255,0.02);border-radius:6px;font-size:13px}
+
+.footer{opacity:0.8;font-size:13px;text-align:center;margin-top:8px}
+@media (max-width:880px){
+  .game-area{flex-direction:column}
+  .right{width:100%}
+}
