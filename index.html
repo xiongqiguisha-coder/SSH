@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>計算ゲームプロトタイプ</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>計算ゲーム</h1>
+      <div class="controls">
+        <label>ゲーム時間：
+          <select id="gameDurationSelect">
+            <option value="300000">5分</option>
+            <option value="180000">3分</option>
+            <option value="600000">10分</option>
+          </select>
+        </label>
+        <button id="startBtn" class="primary">ゲーム開始</button>
+        <button id="adminToggleBtn">管理者モード</button>
+      </div>
+    </header>
+
+    <section class="game-area">
+      <div class="left">
+        <div class="status">
+          <div>残り時間：<span id="timeLeft">05:00</span></div>
+          <div>解答数：<span id="attemptCount">0</span>　正答数：<span id="correctCount">0</span></div>
+          <div class="bgm-controls">
+            <label>BGM：<input id="bgmToggle" type="checkbox"> 有効</label>
+            <label>音量：<input id="volumeRange" type="range" min="0" max="1" step="0.01" value="0.5"></label>
+            <button id="muteBtn">ミュート</button>
+          </div>
+        </div>
+
+        <div class="problem-card">
+          <div id="expression" class="expression">—</div>
+          <div class="answer-row">
+            <input id="answerInput" type="text" inputmode="numeric" placeholder="答えを入力" />
+            <button id="submitBtn" class="primary">送信</button>
+          </div>
+          <div id="feedback" class="feedback"></div>
+        </div>
+
+        <div class="session-actions">
+          <button id="endBtn" class="danger">ゲーム終了（手動）</button>
+        </div>
+
+        <div class="recent-rounds">
+          <h3>直近の問題</h3>
+          <ul id="roundList"></ul>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="summary">
+          <h3>直近ゲーム結果</h3>
+          <div id="gameSummary">まだ結果はありません</div>
+        </div>
+
+        <div class="storage-actions">
+          <h3>保存データ</h3>
+          <button id="exportCsvBtn">全ゲームをCSVでエクスポート</button>
+          <button id="clearAllBtn" class="danger">全データを削除</button>
+        </div>
+
+        <div id="adminPanel" class="admin-panel hidden">
+          <h3>管理者設定</h3>
+          <label>BGM の URL（mp3 等）:
+            <input id="bgmUrlInput" type="url" placeholder="https://example.com/music.mp3">
+          </label>
+          <div class="admin-actions">
+            <button id="saveBgmBtn">BGM を保存</button>
+            <button id="viewStorageBtn">保存データを表示</button>
+          </div>
+          <div id="adminDataView" class="admin-data-view"></div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <small>プロトタイプ（フロントエンド単体）。管理者の一括管理は B フェーズ（サーバ）で実装します。</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
